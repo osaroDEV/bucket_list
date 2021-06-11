@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Alert from './Alert';
-import List from './List';
+import Lists from './Lists';
 
 const App = () => {
   const [isAlert, setIsAlert] = useState({
@@ -39,9 +39,14 @@ const App = () => {
     }
   };
 
+  const handleDel = (id) => {
+    let newItems = list.filter((listItem) => listItem.id !== id)
+    setList(newItems)
+  }
+
   return (
     <div className="app-container">
-      <h3 style={{textAlign: 'center'}}>Bucket List</h3>
+      <h3 style={{ textAlign: 'center' }}>Bucket List</h3>
       {isAlert.display ? <Alert {...isAlert} /> : ''}
       <form>
         <input
@@ -56,9 +61,7 @@ const App = () => {
           submit
         </button>
       </form>
-      {list.map((lis) => {
-        return <List key={lis.id} list={lis} />;
-      })}
+      {list.length > 0 ? <Lists list={list} handleDel={handleDel} setList={setList} /> : ""}
     </div>
   );
 };

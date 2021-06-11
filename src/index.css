@@ -22,18 +22,25 @@ code {
     monospace;
 }
 
+:root {
+  --danger-clr: crimson;
+  --btn-transition: all 0.5s;
+}
+
 .app-container {
-  width: 70%;
+  width: 90%;
   height: auto;
   margin: 3em auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1em;
+  padding: .5em;
   background-color: #fff;
   border-radius: 0.3125em;
 }
+
+
 
 .alert {
   font-size: 0.5em;
@@ -57,34 +64,68 @@ code {
 
 form {
   display: flex;
-  /* border: 1px solid; */
-  padding: 0 1em;
+  width: 95%;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
 }
 
 input {
-  font-size: 0.7em;
-  width: 70%;
+  font-size: 1em;
+  width: 90%;
+  background-color: #eee;
+  padding: 0.25em;
+  border: none;
 }
 
 .btn {
-  background: blueviolet;
+  background: #9999ff;
   color: #fff;
-  border: 1px solid blueviolet;
-  margin-left: 0.5em;
+  border: 1px solid #9999ff;
+  border-radius: 3px;
   padding: .25em .5em;
+  font-size: 1em;
+}
+
+.list-ctn {
+  width: 95%;
+
 }
 
 .list {
   display: flex;
-  font-size: 0.8em;
   justify-content: space-between;
-  border: 1px solid;
-  width: 90%;
+  align-items: center;
+  font-size: 1em;
+  width: 100%;
   margin: 1em 0;
 }
 
 .icon-container {
-  width: 25%;
+  width: 20%;
   display: flex;
   justify-content: space-between;
+}
+
+.del {
+  color: var(--danger-clr);
+}
+
+.edit {
+  color: #198d19;
+}
+
+.clr-btn {
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  padding: 0.3em 1em;
+  border-radius: 3px;
+  border: 1px solid var(--danger-clr);
+  background-color: var(--danger-clr);
+  transition: var(--btn-transition);
+}
+
+.clr-btn:hover {
+  color: var(--danger-clr);
+  background-color: #fff;
 }
