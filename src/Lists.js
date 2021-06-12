@@ -1,13 +1,17 @@
 import React from 'react';
-import List from './List'
+import { useGlobalContext } from './context';
+import List from './List';
 
-const Lists = ({list, handleDel, setList}) => {
+const Lists = ({ list }) => {
+  const { deleteAll } = useGlobalContext();
   return (
     <div className='list-ctn'>
       {list.map((listItem) => {
-        return <List key={listItem.id} {...listItem} handleDel={handleDel} />
+        return <List key={listItem.id} {...listItem} />;
       })}
-      <button className='clr-btn' onClick={() => setList([])}>clear items</button>
+      <button className='clr-btn' onClick={deleteAll}>
+        clear items
+      </button>
     </div>
   );
 };
