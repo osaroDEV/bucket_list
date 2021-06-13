@@ -12,6 +12,7 @@ const ContextContainer = ({ children }) => {
   const [list, setList] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [editID, setEditID] = useState(null);
+  const [cantDelete, setCantDelete] = useState(false);
 
   const handleAlert = (display = false, msg = '', tone = '') => {
     setIsAlert({ display: display, msg: msg, tone: tone });
@@ -33,6 +34,7 @@ const ContextContainer = ({ children }) => {
       setItem('');
       setEditID(null);
       setIsEdit(false);
+      setCantDelete(false);
       handleAlert(true, 'item edited', 'success');
     } else {
       handleAlert(true, 'item has been added', 'success');
@@ -46,6 +48,8 @@ const ContextContainer = ({ children }) => {
     let newItems = list.filter((listItem) => listItem.id !== id);
     setList(newItems);
     handleAlert(true, 'an item has been removed', 'danger');
+    setItem('');
+    setIsEdit(false);
   };
 
   const deleteAll = () => {
@@ -59,9 +63,10 @@ const ContextContainer = ({ children }) => {
 
   const handleEdit = (id) => {
     const targetItem = list.find((listItem) => listItem.id === id);
-    handleAlert(true, 'edit item', 'success')
+    handleAlert(true, 'edit item', 'success');
     setIsEdit(true);
     setEditID(id);
+    setCantDelete(true);
     setItem(targetItem.name);
   };
 
@@ -81,6 +86,8 @@ const ContextContainer = ({ children }) => {
         list,
         isEdit,
         setIsEdit,
+        cantDelete,
+        setCantDelete,
       }}
     >
       {children}
