@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Alert from './Alert';
 import { useGlobalContext } from './context';
 import Lists from './Lists';
 
 const App = () => {
-  const { isAlert, item, setItem, handleSubmit, list, isEdit } =
+  const { isAlert, item, setItem, handleSubmit, list, isEdit, handleAlert } =
     useGlobalContext();
+
+  useEffect(() => {
+    handleAlert(true, 'welcome to bucketlist', 'success');
+  }, [])
+  
   return (
     <div className='app-container'>
       {isAlert.display ? <Alert {...isAlert} /> : ''}

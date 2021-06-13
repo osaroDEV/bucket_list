@@ -50,12 +50,16 @@ const ContextContainer = ({ children }) => {
 
   const deleteAll = () => {
     setList([]);
-    handleAlert(true, 'all items removed', 'danger');
+    if (list.length === 1) {
+      handleAlert(true, 'an item has been removed', 'danger');
+    } else {
+      handleAlert(true, 'all items removed', 'danger');
+    }
   };
 
   const handleEdit = (id) => {
     const targetItem = list.find((listItem) => listItem.id === id);
-    console.log(targetItem);
+    handleAlert(true, 'edit item', 'success')
     setIsEdit(true);
     setEditID(id);
     setItem(targetItem.name);
