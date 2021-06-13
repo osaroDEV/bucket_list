@@ -36,7 +36,7 @@ code {
   padding: 0.5em;
   background-color: #fff;
   border-radius: 0.3125em;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -121,10 +121,17 @@ input {
 .list {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   width: 100%;
   margin: 1em 0;
   font-size: 1.2em;
+  padding: 0.15em 1em;
+  border-radius: 5px;
+  transition: var(--btn-transition);
+}
+
+.list:hover {
+  background-color: #eee;
 }
 
 .icon-container {
@@ -148,14 +155,32 @@ input {
   color: var(--danger-clr);
 }
 
+.del:hover {
+  color: #9a0e2a;
+}
+
 .edit {
   color: #198d19;
 }
 
+.edit:hover {
+  color: #126312;
+}
+
 .del,
 .edit {
-  cursor: pointer;
   font-size: 0.8em;
+  transition: var(--btn-transition);
+}
+
+.btn-icon {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.not-allowed {
+  cursor: not-allowed;
 }
 
 @media (min-width: 481px) {
@@ -177,6 +202,7 @@ input {
   padding: 0.3em 1em;
   border-radius: 3px;
   font-size: 1em;
+  cursor: pointer;
   border: 1px solid var(--danger-clr);
   background-color: var(--danger-clr);
   transition: var(--btn-transition);
@@ -185,4 +211,8 @@ input {
 .clr-btn:hover {
   color: var(--danger-clr);
   background-color: #fff;
+}
+
+.no-pointer {
+  cursor: not-allowed;
 }
